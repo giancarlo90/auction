@@ -64,10 +64,9 @@ public class Auction
             }
             else {
                 // Report which bid is higher.
-                Bid highestBid = selectedLot.getHighestBid();
                 System.out.println("Lot number: " + lotNumber +
                                    " already has a bid of: " +
-                                   highestBid.getValue());
+                                   selectedLot.getHighestBid().getValue());
             }
         }
     }
