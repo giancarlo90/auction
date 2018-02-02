@@ -99,4 +99,21 @@ public class Auction
             return null;
         }
     }
+    
+    /**
+     * Imprime lo datos de los lotes
+     */
+    public void close()
+    {
+        for(Lot lot : lots) {
+            Bid closer = lot.getHighestBid();
+            System.out.println(lot.toString());
+            if(closer != null){
+            System.out.println("Pujador:" + closer.getBidder().getName() + ". Puja mas alta: " + closer.getValue());
+            }
+            else{
+            System.out.println("No existe puja.");
+            }
+        }
+    }
 }
