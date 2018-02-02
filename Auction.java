@@ -44,7 +44,7 @@ public class Auction
             System.out.println(lot.toString());
         }
     }
-    
+
     /**
      * Make a bid for a lot.
      * A message is printed indicating whether the bid is
@@ -61,13 +61,13 @@ public class Auction
             boolean successful = selectedLot.bidFor(new Bid(bidder, value));
             if(successful) {
                 System.out.println("The bid for lot number " +
-                                   lotNumber + " was successful.");
+                    lotNumber + " was successful.");
             }
             else {
                 // Report which bid is higher.
                 System.out.println("Lot number: " + lotNumber +
-                                   " already has a bid of: " +
-                                   selectedLot.getHighestBid().getValue());
+                    " already has a bid of: " +
+                    selectedLot.getHighestBid().getValue());
             }
         }
     }
@@ -82,12 +82,12 @@ public class Auction
         Iterator<Lot> it = lots.iterator();
         while(it.hasNext()){
             if(it.next().getNumber() == lotNumber){
-                 return it.next();
+                return it.next();
             }
         }
         return null;
     }
-    
+
     /**
      * Imprime lo datos de los lotes
      */
@@ -97,14 +97,14 @@ public class Auction
             Bid closer = lot.getHighestBid();
             System.out.println(lot.toString());
             if(closer != null){
-            System.out.println("Pujador:" + closer.getBidder().getName() + ". Puja mas alta: " + closer.getValue());
+                System.out.println("Pujador:" + closer.getBidder().getName() + ". Puja mas alta: " + closer.getValue());
             }
             else{
-            System.out.println("No existe puja.");
+                System.out.println("No existe puja.");
             }
         }
     }
-    
+
     /**
      * Devuelve los lotes que no tienen pujas.
      */
@@ -117,5 +117,19 @@ public class Auction
             }
         }
         return lista;
+    }
+
+    /**
+     * Eliminar un lote deseado
+     */
+    public Lot removeLot(int number)
+    {
+        Lot lot= getLot(number);
+        if (number >= 1){
+            if(lot != null){
+                lots.remove(lot);
+            }
+        }
+        return lot;
     }
 }
